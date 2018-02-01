@@ -34,6 +34,3 @@ WORKDIR /usr/src/app
 
 ADD .babelrc ./
 ADD .npmrc ./
-
-ENTRYPOINT sh
-CMD []
