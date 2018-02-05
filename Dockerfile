@@ -11,7 +11,22 @@ RUN mkdir -p /root/.config
 RUN chown -R $USER:$(id -gn $USER) /root/.config
 
 RUN apk --no-cache add \
-  openssh openssl bash groff jq git g++ gcc libgcc libstdc++ linux-headers make python curl docker py-pip && \
+  openssh \
+  openssl \
+  bash \
+  groff \
+  jq \
+  git \
+  g++ \
+  gcc \
+  libgcc \
+  libstdc++ \
+  linux-headers \
+  make \
+  python \
+  curl \
+  docker \
+  py-pip && \
   pip install --upgrade pip && \
   pip install awscli && \
   yarn global add npm@latest && \
@@ -29,6 +44,9 @@ RUN curl https://releases.hashicorp.com/terraform/0.11.2/terraform_0.11.2_linux_
   chmod +x terraform && \
   mv terraform /usr/bin && \
   rm -rf terraform.zip
+
+RUN curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest && \
+  chmod +x /usr/local/bin/ecs-cli
 
 WORKDIR /usr/src/app
 
