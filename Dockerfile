@@ -11,7 +11,7 @@ RUN mkdir -p /root/.config
 RUN chown -R $USER:$(id -gn $USER) /root/.config
 
 RUN apk --no-cache add \
-  openssl bash groff jq git g++ gcc libgcc libstdc++ linux-headers make python curl docker py-pip && \
+  openssh openssl bash groff jq git g++ gcc libgcc libstdc++ linux-headers make python curl docker py-pip && \
   pip install --upgrade pip && \
   pip install awscli && \
   yarn global add npm@latest && \
