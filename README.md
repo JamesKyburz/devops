@@ -10,6 +10,10 @@ includes
 * awscli
 * 1password cli
 * terraform
+* ecs cli
+* openssl
+* openssh
+* jq
 
 # license
 
