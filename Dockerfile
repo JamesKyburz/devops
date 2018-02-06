@@ -29,6 +29,7 @@ RUN apk --no-cache add \
   py-pip && \
   pip install --upgrade pip && \
   pip install awscli && \
+  pip install docker-compose && \
   yarn global add npm@latest && \
   npm uninstall yarn -g && \
   npm install node-gyp serverless babel-cli babel-preset-node -g
