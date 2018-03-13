@@ -10,6 +10,7 @@ includes
 * awscli
 * 1password cli
 * terraform
+* terragrunt
 * ecs cli
 * openssl
 * openssh

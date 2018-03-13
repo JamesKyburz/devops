@@ -49,6 +49,9 @@ RUN curl https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_linux_
 RUN curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest && \
   chmod +x /usr/local/bin/ecs-cli
 
+RUN curl -s -L -o /usr/local/bin/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.14.2/terragrunt_linux_amd64 && \
+  chmod +x /usr/local/bin/terragrunt
+
 WORKDIR /usr/src/app
 
 ADD .babelrc ./
