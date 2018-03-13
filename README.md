@@ -7,14 +7,18 @@ includes
 * babel
 * serverless
 * graphicsmagick
-* awscli
+* aws cli
+* ecs cli
 * 1password cli
 * terraform
 * terragrunt
-* ecs cli
 * openssl
 * openssh
 * jq
+* git, make and friends
+* python
+* docker
+* bash
 
 # license
 
