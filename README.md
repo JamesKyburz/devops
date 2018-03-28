@@ -6,6 +6,7 @@ includes
 * npm 5
 * babel
 * serverless
+* picture-tube
 * graphicsmagick
 * aws cli
 * ecs cli
