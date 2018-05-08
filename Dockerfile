@@ -1,4 +1,4 @@
-FROM jameskyburz/graphicsmagick-alpine:v1.0.0 as gm
+FROM jameskyburz/graphicsmagick-alpine:v1.2.0 as gm
 FROM node:6.10.3-alpine
 
 COPY --from=gm /usr/ /usr/
