@@ -32,7 +32,8 @@ RUN apk --no-cache add \
   pip install docker-compose && \
   yarn global add npm@latest && \
   npm uninstall yarn -g && \
-  npm install node-gyp yamljs serverless babel-cli babel-preset-node picture-tube -g
+  npm install node-gyp yamljs babel-cli babel-preset-node picture-tube -g && \
+  npm install serverless@1.27.1 -g
 
 RUN curl https://cache.agilebits.com/dist/1P/op/pkg/v0.3/op_linux_386_v0.3.zip -o op.zip && \
   unzip op.zip && \
