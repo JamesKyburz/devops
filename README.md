@@ -3,7 +3,7 @@
 includes
 
 * node 6.10.3
-* npm 5
+* npm 6
 * babel
 * serverless
 * picture-tube
