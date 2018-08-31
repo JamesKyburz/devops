@@ -7,6 +7,7 @@ includes
 * babel
 * serverless
 * picture-tube
+* modclean
 * graphicsmagick
 * aws cli
 * ecs cli
