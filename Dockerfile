@@ -35,7 +35,7 @@ RUN apk --no-cache add \
   npm install node-gyp yamljs babel-cli babel-preset-node picture-tube modclean -g && \
   npm install serverless@1.26.1 -g
 
-RUN curl https://cache.agilebits.com/dist/1P/op/pkg/v0.4.1/op_linux_386_v0.4.1.zip -o op.zip && \
+RUN curl https://cache.agilebits.com/dist/1P/op/pkg/v0.5.4/op_linux_386_v0.5.4.zip -o op.zip && \
   unzip op.zip && \
   chmod +x op && \
   mv op /usr/bin && \
