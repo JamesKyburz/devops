@@ -41,7 +41,7 @@ RUN curl https://cache.agilebits.com/dist/1P/op/pkg/v0.5.4/op_linux_386_v0.5.4.z
   mv op /usr/bin && \
   rm -rf op.zip op.sig
 
-RUN curl https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_linux_amd64.zip -o terraform.zip && \
+RUN curl https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip -o terraform.zip && \
   unzip terraform.zip && \
   chmod +x terraform && \
   mv terraform /usr/bin && \
