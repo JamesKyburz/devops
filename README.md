@@ -2,7 +2,7 @@
 
 includes
 
-* node 6.10.3
+* node 8.10
 * npm 6
 * babel
 * serverless
