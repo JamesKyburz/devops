@@ -28,7 +28,7 @@ RUN apk --no-cache add \
   docker \
   py-pip && \
   pip install --upgrade pip && \
-  pip install awscli==1.16.14 && \
+  pip install awscli && \
   pip install docker-compose && \
   yarn global add npm@latest && \
   npm uninstall yarn -g && \
