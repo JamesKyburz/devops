@@ -26,6 +26,7 @@ RUN apk --no-cache add \
   python \
   curl \
   docker \
+  libsecret-dev \
   py-pip && \
   pip install --upgrade pip && \
   pip install awscli && \
