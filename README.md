@@ -21,6 +21,7 @@ includes
 * python
 * docker
 * bash
+* ag (the_silver_searcher)
 
 # license
 
