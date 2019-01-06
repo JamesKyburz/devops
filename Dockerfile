@@ -32,6 +32,7 @@ RUN apk --no-cache add \
   py-pip && \
   pip install --upgrade pip && \
   pip install aws-sam-cli && \
+  pip install awscurl && \
   pip install awscli && \
   pip install docker-compose && \
   yarn global add npm@latest && \
