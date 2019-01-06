@@ -24,12 +24,14 @@ RUN apk --no-cache add \
   linux-headers \
   make \
   python \
+  python-dev \
   curl \
   docker \
   libsecret-dev \
   the_silver_searcher \
   py-pip && \
   pip install --upgrade pip && \
+  pip install aws-sam-cli && \
   pip install awscli && \
   pip install docker-compose && \
   yarn global add npm@latest && \
