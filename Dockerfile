@@ -25,6 +25,7 @@ RUN apk --no-cache add \
   make \
   python \
   python-dev \
+  openssl-dev \
   curl \
   docker \
   libsecret-dev \
