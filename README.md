@@ -2,8 +2,10 @@
 
 includes
 
+* go 1.11.5
 * node 8.10
-* npm 6
+* shfmt
+* node-prune
 * babel
 * serverless
 * picture-tube

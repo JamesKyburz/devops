@@ -1,11 +1,17 @@
 FROM jameskyburz/graphicsmagick-alpine:v1.2.0 as gm
-FROM node:8.10-alpine
-
-COPY --from=gm /usr/ /usr/
+FROM golang:1.11.5-alpine3.8 as go
+FROM node:8.15-alpine
 
 LABEL maintainer="James Kyburz james.kyburz@gmail.com"
 
+COPY --from=gm /usr/ /usr/
+COPY --from=go /usr/local/go /usr/local/go
+
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 ENV NPM_CONFIG_LOGLEVEL warn
+
+RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 
 RUN mkdir -p /root/.config
 RUN chown -R $USER:$(id -gn $USER) /root/.config
@@ -58,6 +64,9 @@ RUN curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-c
 
 RUN curl -s -L -o /usr/local/bin/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.14.2/terragrunt_linux_amd64 && \
   chmod +x /usr/local/bin/terragrunt
+
+RUN go get github.com/mvdan/sh/cmd/shfmt
+RUN go get github.com/tj/node-prune/cmd/node-prune
 
 WORKDIR /usr/src/app
 
