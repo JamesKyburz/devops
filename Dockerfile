@@ -17,6 +17,7 @@ RUN mkdir -p /root/.config
 RUN chown -R $USER:$(id -gn $USER) /root/.config
 
 RUN apk --no-cache add \
+  tzdata \
   openssh \
   openssl \
   bash \
