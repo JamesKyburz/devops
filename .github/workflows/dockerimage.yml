@@ -1,0 +1,34 @@
+name: Docker Image CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag devops
+    - name: Tag docker image for public registry
+      run: >
+        docker tag devops jameskyburz/devops &&
+        docker tag devops jameskyburz/devops:$(git describe --tags)
+    - name: Login to public docker registry
+      run: >
+        echo ${{ secrets.DOCKERHUB_PASSWORD }} |
+        docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+    - name: Publish docker images to public registry
+      run: >
+        docker push jameskyburz/devops:latest &&
+        docker push jameskyburz/devops:$(git describe --tags)
+    - name: Tag docker image for github registry
+      run: >
+        docker tag devops docker.pkg.github.com/jameskyburz/devops/devops &&
+        docker tag devops docker.pkg.github.com/jameskyburz/devops/devops:$(git describe --tags)
+    - name: Login to github registry
+      run: >
+        echo ${{ secrets.GITHUB_REGISTRY_TOKEN }} |
+        docker login docker.pkg.github.com --username JamesKyburz --password-stdin
+    - name: Publish docker images to github
+      run: >
+        docker push docker.pkg.github.com/jameskyburz/devops/devops:latest &&
+        docker push docker.pkg.github.com/jameskyburz/devops/devops:$(git describe --tags)
+
