@@ -1,6 +1,6 @@
-FROM jameskyburz/graphicsmagick-alpine:v1.2.0 as gm
-FROM golang:1.11.5-alpine3.8 as go
-FROM node:8.15-alpine
+FROM jameskyburz/graphicsmagick-alpine:v3.0.0 as gm
+FROM golang:1.13-alpine3.11 as go
+FROM node:12-alpine3.11
 
 LABEL maintainer="James Kyburz james.kyburz@gmail.com"
 
@@ -30,31 +30,32 @@ RUN apk --no-cache add \
   libstdc++ \
   linux-headers \
   make \
-  python \
-  python-dev \
+  python3 \
+  python3-dev \
   openssl-dev \
   curl \
   docker \
   libsecret-dev \
-  the_silver_searcher \
-  py-pip && \
-  pip install --upgrade pip && \
-  pip install aws-sam-cli && \
-  pip install awscurl && \
-  pip install awscli && \
-  pip install docker-compose && \
+  the_silver_searcher && \
+  python3 -m ensurepip && \
+  rm -r /usr/lib/python*/ensurepip && \
+  pip3 install --no-cache --upgrade pip setuptools wheel && \
+  pip3 install aws-sam-cli && \
+  pip3 install awscurl && \
+  pip3 install awscli && \
+  pip3 install docker-compose && \
   yarn global add npm@latest npx@latest && \
   npm uninstall yarn -g && \
   npm install node-gyp yamljs babel-cli babel-preset-node picture-tube modclean -g && \
   npm install serverless@latest -g
 
-RUN curl https://cache.agilebits.com/dist/1P/op/pkg/v0.7.1/op_linux_386_v0.7.1.zip -o op.zip && \
+RUN curl https://cache.agilebits.com/dist/1P/op/pkg/v0.8.0/op_linux_386_v0.8.0.zip -o op.zip && \
   unzip op.zip && \
   chmod +x op && \
   mv op /usr/bin && \
   rm -rf op.zip op.sig
 
-RUN curl https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip -o terraform.zip && \
+RUN curl https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip -o terraform.zip && \
   unzip terraform.zip && \
   chmod +x terraform && \
   mv terraform /usr/bin && \
@@ -62,9 +63,6 @@ RUN curl https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linu
 
 RUN curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest && \
   chmod +x /usr/local/bin/ecs-cli
-
-RUN curl -s -L -o /usr/local/bin/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.14.2/terragrunt_linux_amd64 && \
-  chmod +x /usr/local/bin/terragrunt
 
 RUN go get github.com/mvdan/sh/cmd/shfmt
 RUN go get github.com/tj/node-prune/cmd/node-prune

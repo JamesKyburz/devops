@@ -2,8 +2,8 @@
 
 includes
 
-* go 1.11.5
-* node 8.10
+* go 1.13
+* node 12
 * shfmt
 * node-prune
 * babel
@@ -15,12 +15,11 @@ includes
 * ecs cli
 * 1password cli
 * terraform
-* terragrunt
 * openssl
 * openssh
 * jq
 * git, make and friends
-* python
+* python3
 * docker
 * bash
 * ag (the_silver_searcher)
