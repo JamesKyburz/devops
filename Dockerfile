@@ -65,7 +65,7 @@ RUN curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-c
   chmod +x /usr/local/bin/ecs-cli
 
 RUN go get github.com/mvdan/sh/cmd/shfmt
-RUN go get github.com/tj/node-prune/cmd/node-prune
+RUN go get github.com/tj/node-prune
 
 WORKDIR /usr/src/app
 
