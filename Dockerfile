@@ -1,5 +1,5 @@
 FROM jameskyburz/graphicsmagick-alpine:v3.0.0 as gm
-FROM golang:1.13-alpine3.11 as go
+FROM golang:1.14-alpine3.11 as go
 FROM node:12-alpine3.11
 
 LABEL maintainer="James Kyburz james.kyburz@gmail.com"
