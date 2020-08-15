@@ -44,7 +44,7 @@ RUN apk --no-cache add \
   pip3 install awscurl && \
   pip3 install awscli && \
   pip3 install docker-compose && \
-  yarn global add npm@latest npx@latest && \
+  npm install npm@latest && \
   npm install node-gyp yamljs babel-cli babel-preset-node picture-tube modclean -g && \
   npm install serverless@latest -g
 
