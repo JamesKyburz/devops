@@ -35,6 +35,7 @@ RUN apk --no-cache add \
   openssl-dev \
   curl \
   docker \
+  shellcheck \
   libsecret-dev \
   the_silver_searcher && \
   python3 -m ensurepip && \
